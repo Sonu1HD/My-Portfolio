@@ -1,24 +1,54 @@
 import React from 'react'
 import Section from '../components/Section'
-import Skills from './Skills'
+import Skills from '../components/Skills'
+import Certificate from '../components/Certificate'
 
 const Home = () => {
   return (
     <div>
-      <section className='hero-sec flex-col- sm:flex justify-around items-center p-10 sm:m-20 m-10 bg-gray-800/50 rounded-2xl'>
-        {/* Text Section */}
-        <div className="text-sec sm:text-4xl text-3xl text-white font-bold space-y-5">
-          <h2>Sonu Halder</h2>
-          <h1 className='sm:text-5xl text-2xl'>Hello I Am A<br></br> Web Developer <span className='wave text-5xl'>👋</span> </h1>
-          <a href="src/assets/Resume (1).pdf" download className='cv-btn text-2xl hover:cursor-pointer mt-3 w-fit pb-2'>
-            <button className='bg-linear-to-r to-blue-600 bg-indigo-500 p-3 hover:border-b-2 hover:border-indigo-500 transition delay-220 duration-300 ease-in-out rounded-2xl shadow-2xl shadow-indigo-900'>Get My CV</button>
+      <section className="relative m-5 flex flex-col-reverse sm:flex-row items-center justify-between gap-12 
+min-h-[80vh] px-10 py-16 sm:px-20 
+bg-linear-to-br from-black via-[#0B0F19] to-indigo-900/40 
+rounded-3xl border border-white/10 shadow-2xl">
+
+        {/* TEXT */}
+        <div className="space-y-6 text-center sm:text-left">
+          <h2 className="text-xl tracking-widest text-indigo-400 uppercase">
+            Sonu Halder
+          </h2>
+
+          <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight text-white">
+            Full Stack <br />
+            <span className="text-indigo-500">Web Developer</span>
+            <span className="wave inline-block ml-2">👋</span>
+          </h1>
+
+          <p className="text-gray-400 max-w-xl">
+            I build modern, scalable, and secure web applications using
+            React, Node.js, MongoDB, and authentication systems.
+          </p>
+
+          <a
+            href="/Resume.pdf"
+            download
+            className="inline-block"
+          >
+            <button className="px-8 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 
+      transition shadow-lg shadow-indigo-900/50">
+              Download CV
+            </button>
           </a>
         </div>
-        {/* Image Section */}
-        <div className="img-sec">
-          <img className='w-2xl rounded-2xl mt-5 rotate-7 hover:cursor-pointer hover:rotate-0 transition delay-150 duration-300 ease-in-out'
-            src="src/assets/full-stack-web-dev.jpg"
-            alt="Hero-img" />
+
+        {/* IMAGE */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-indigo-500/30 blur-2xl rounded-3xl"></div>
+          <img
+            src="/full-stack-web-dev.jpg"
+            alt="Hero"
+            className="relative w-75 sm:w-95 rounded-3xl 
+      border border-white/10 shadow-2xl"
+          />
         </div>
       </section>
       {/* //About Section */}
@@ -34,7 +64,7 @@ const Home = () => {
         </div>
         {/* TEXT BOX */}
         <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-12 max-w-lg shadow-xl hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2">
-          <h1 className="text-4xl font-extrabold uppercase tracking-[4px] mb-6 flex items-center gap-2">
+          <h1 className="text-4xl text-indigo-500 font-extrabold uppercase tracking-[4px] mb-6 flex items-center gap-2">
             About Me
           </h1>
           <p className="text-lg leading-relaxed text-gray-300">
@@ -47,53 +77,59 @@ const Home = () => {
           </p>
         </div>
       </section>
+      {/* //MY Services Section */}
+      <section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex items-center justify-center px-6 py-24">
+        <div className="max-w-6xl w-full text-center space-y-6">
+          <p className="text-indigo-400 text-lg uppercase tracking-wider">
+            What I Can Offer
+          </p>
+          <h1 className="text-3xl sm:text-4xl font-bold">
+            My Services
+          </h1>
+          <p className="max-w-2xl mx-auto text-gray-300">
+            I am a passionate Full-Stack Developer from India.
+            As a fresher, I focus on building clean, modern, and scalable web applications while continuously learning new technologies.
+          </p>
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pt-10 hover:cursor-pointer">
+            {/* Card 1 */}
+            <div className="border border-indigo-500/30 rounded-xl p-8 bg-black/40 backdrop-blur-md hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 transition duration-300">
+              <h2 className="text-xl font-semibold mb-3 text-indigo-400">
+                Web Design & UI
+              </h2>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Creating responsive, modern, and user-friendly interfaces using
+                React, Tailwind CSS, and clean design principles.
+              </p>
+            </div>
+            {/* Card 2 */}
+            <div className="border border-indigo-500/30 rounded-xl p-8 bg-black/40 backdrop-blur-md hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 transition duration-300">
+              <h2 className="text-xl font-semibold mb-3 text-indigo-400">
+                API Development
+              </h2>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Building and consuming REST APIs with Node.js and Express,
+                handling authentication, validation, and clean data flow.
+              </p>
+            </div>
+            {/* Card 3 */}
+            <div className="border border-indigo-500/30 rounded-xl p-8 bg-black/40 backdrop-blur-md hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 transition duration-300">
+              <h2 className="text-xl font-semibold mb-3 text-indigo-400">
+                Database Management
+              </h2>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Designing and managing MongoDB databases with efficient schemas,
+                CRUD operations, and secure data handling.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* //Skills Section */}
+      <div className='min-h-screen flex justify-center items-center'>
+        <Certificate />
+      </div>
       <Skills />
-      {/* <section className='min-h-screen bg-[url(src/assets/3293677.jpg)] relative'>
-        <div className="text-sec py-5">
-          <h2 className='text-4xl font-bold text-center mb-10 underline text-shadow-2xs text-shadow-amber-50 text-indigo-100'>My Skills</h2>
-          <div className="skills-grid grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center">
-            <div className="skill-item flex flex-col items-center bg-indigo-600/50 p-5 rounded-2xl shadow-2xl shadow-indigo-700 hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2 hover:cursor-pointer">
-              <img src="src/assets/icons8-html-5-100.png" alt="HTML5" className="w-16 h-16 mb-5" />
-              <span className="text-white font-semibold">HTML5</span>
-            </div>
-            <div className="skill-item flex flex-col items-center bg-indigo-600/50 p-5 rounded-2xl shadow-2xl shadow-indigo-700 hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2 hover:cursor-pointer">
-              <img src="src/assets/icons8-css-logo-50.png" alt="CSS3" className="w-16 h-16 mb-5" />
-              <span className="text-white font-semibold">CSS3</span>
-            </div>
-            <div className="skill-item flex flex-col items-center bg-indigo-600/50 p-5 rounded-2xl shadow-2xl shadow-indigo-700 hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2 hover:cursor-pointer">
-              <img src="src/assets/icons8-javascript-logo-50.png" alt="JavaScript" className="w-16 h-16 mb-5" />
-              <span className="text-white font-semibold">JavaScript</span>
-            </div>
-            <div className="skill-item flex flex-col items-center bg-indigo-600/50 p-5 rounded-2xl shadow-2xl shadow-indigo-700 hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2 hover:cursor-pointer">
-              <img src="src/assets/icons8-react-50.png" alt="React" className="w-16 h-16 mb-5" />
-              <span className="text-white font-semibold">React</span>
-            </div>
-            <div className="skill-item flex flex-col items-center bg-indigo-600/50 p-5 rounded-2xl shadow-2xl shadow-indigo-700 hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2 hover:cursor-pointer">
-              <img src="src/assets/icons8-node-js-50.png" alt="Node.js" className="w-16 h-16 mb-5" />
-              <span className="text-white font-semibold">Node.js</span>
-            </div>
-            <div className="skill-item flex flex-col items-center bg-indigo-600/50 p-5 rounded-2xl shadow-2xl shadow-indigo-700 hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2 hover:cursor-pointer">
-              <img src="src/assets/icons8-express-js-64.png" alt="Express.js" className="w-16 h-16 mb-5" />
-              <span className="text-white font-semibold">Express.js</span>
-            </div>
-            <div className="skill-item flex flex-col items-center bg-indigo-600/50 p-5 rounded-2xl shadow-2xl shadow-indigo-700 hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2 hover:cursor-pointer">
-              <img src="src/assets/icons8-mongo-db-50.png" alt="MongoDB" className="w-16 h-16 mb-5" />
-              <span className="text-white font-semibold">MongoDB</span>
-            </div>
-            <div className="skill-item flex flex-col items-center bg-indigo-600/50 p-5 rounded-2xl shadow-2xl shadow-indigo-700 hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2 hover:cursor-pointer">
-              <img src="src/assets/icons8-github-logo-50.png" alt="Git" className="w-16 h-16 mb-5" />
-              <span className="text-white font-semibold">GitHub</span>
-            </div>
-          </div>
-        </div>
-        <div className="w-full flex justify-center">
-          <div className="relative w-64 sm:w-80 md:w-96 h-7 bg-white rounded overflow-hidden mb-6">
-            <div className="move absolute top-1/2 -translate-y-1/2 w-4 h-4 shadow-2xl shadow-red-600 bg-red-500 rounded-full"></div>
-            <div className="fill absolute inset-0 animate-fill"></div>
-          </div>
-        </div>
-      </section> */}
     </div>
   )
 }

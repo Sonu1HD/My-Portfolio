@@ -9,16 +9,6 @@ import Contact from './pages/Contact'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer from './components/footer'
 
-const projects = [
-  {
-    title: "Delfood Website",
-    img: "src/assets/delfood.png",
-    live: "https://sonu1hd.github.io/My-Projects/Delfood/",
-    github: "https://github.com/sonu1hd/My-Projects/tree/main/Delfood"
-  },
-  // more projects...
-];
-
 function App() {
   // const [count, setCount] = useState(0)
 
@@ -34,7 +24,6 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path="*" element={<Home />} />
         </Routes>
-
         <Footer />
       </div>
     </>

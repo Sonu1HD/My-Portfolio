@@ -1,4 +1,4 @@
-import Skills from "../pages/Skills"
+import Skills from "./Skills"
 const Section = ({ id, title, children, bg }) => {
   return (
     <section

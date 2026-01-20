@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
-        <div>
+        <div className="sticky top-0 z-40">
             <nav className='flex justify-around p-6 font-semibold border-b-2 bg-gray-800/50 text-white items-center'>
                 <div className="logo">My Portfolio</div>
                 <ul className='hidden sm:flex gap-5'>

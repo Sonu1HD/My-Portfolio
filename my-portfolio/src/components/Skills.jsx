@@ -1,4 +1,4 @@
-import Section from "../components/Section"
+import Section from "./Section"
 
 const skills = [
   { name: "HTML5", img: "src/assets/icons8-html-5-100.png" },
