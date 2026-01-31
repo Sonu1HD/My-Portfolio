@@ -8,6 +8,12 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer from './components/footer'
+import AdminLogin from "./pages/Admin/adminLogin";
+import Dashboard from './pages/Admin/pages/Dashboard'
+import ProtectedRoute from "./components/ProtectedRoute";
+import Messages from './pages/Admin/pages/Messages'
+import AdminProjects from './pages/Admin/pages/Projects'
+import AdminSkills from './pages/Admin/pages/Skills'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -23,6 +29,40 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path="*" element={<Home />} />
+          <Route path="/sonu-admin-login" element={<AdminLogin />} />
+          <Route
+            path="/sonu-admin-dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/messages"
+            element={
+              <ProtectedRoute>
+                <Messages />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/projects"
+            element={
+              <ProtectedRoute>
+                <AdminProjects />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/skills"
+            element={
+              <ProtectedRoute>
+                <AdminSkills />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
         <Footer />
       </div>

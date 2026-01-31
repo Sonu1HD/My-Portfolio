@@ -1,17 +1,14 @@
+import { useEffect, useState } from "react";
 import Section from "./Section"
 
-const skills = [
-  { name: "HTML5", img: "src/assets/icons8-html-5-100.png" },
-  { name: "CSS3", img: "src/assets/icons8-css-logo-50.png" },
-  { name: "JavaScript", img: "src/assets/icons8-javascript-logo-50.png" },
-  { name: "React", img: "src/assets/icons8-react-50.png" },
-  { name: "Node.js", img: "src/assets/icons8-node-js-50.png" },
-  { name: "Express.js", img: "src/assets/icons8-express-js-64.png" },
-  { name: "MongoDB", img: "src/assets/icons8-mongo-db-50.png" },
-  { name: "GitHub", img: "src/assets/icons8-github-logo-50.png" },
-]
-
 const Skills = () => {
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/skills")
+    .then((res) => res.json())
+    .then((data) => setSkills(data));
+  }, []);
   return (
     <Section
       id="skills"

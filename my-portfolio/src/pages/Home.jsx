@@ -6,10 +6,18 @@ import Certificate from '../components/Certificate'
 const Home = () => {
   return (
     <div>
-      <section className="relative m-5 flex flex-col-reverse sm:flex-row items-center justify-between gap-12 
-min-h-[80vh] px-10 py-16 sm:px-20 
-bg-linear-to-br from-black via-[#0B0F19] to-indigo-900/40 
-rounded-3xl border border-white/10 shadow-2xl">
+      <section className="relative
+m-5
+flex flex-col-reverse sm:flex-row
+items-center justify-between gap-12
+min-h-[80vh]
+px-4 py-10 sm:px-20
+overflow-hidden
+bg-linear-to-br
+from-black via-[#0B0F19] to-indigo-900/40
+rounded-3xl
+border border-white/10
+shadow-2xl">
 
         {/* TEXT */}
         <div className="space-y-6 text-center sm:text-left">
@@ -29,7 +37,7 @@ rounded-3xl border border-white/10 shadow-2xl">
           </p>
 
           <a
-            href="/Resume.pdf"
+            href="src/assets/Resume (1).pdf"
             download
             className="inline-block"
           >
@@ -44,7 +52,7 @@ rounded-3xl border border-white/10 shadow-2xl">
         <div className="relative">
           <div className="absolute inset-0 bg-indigo-500/30 blur-2xl rounded-3xl"></div>
           <img
-            src="/full-stack-web-dev.jpg"
+            src="src/assets/Gemini_Generated_Image_ox3ba4ox3ba4ox3b.png"
             alt="Hero"
             className="relative w-75 sm:w-95 rounded-3xl 
       border border-white/10 shadow-2xl"
