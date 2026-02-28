@@ -14,13 +14,13 @@ const Dashboard = () => {
 
     const fetchStats = async () => {
       const [msgRes, projRes, skillRes] = await Promise.all([
-        fetch("http://my-portfolio-backend-a77b.onrender.com/admin/messages", {
+        fetch("https://my-portfolio-backend-a77b.onrender.com/admin/messages", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://my-portfolio-backend-a77b.onrender.com/projects", {
+        fetch("https://my-portfolio-backend-a77b.onrender.com/projects", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://my-portfolio-backend-a77b.onrender.com/skills"),
+        fetch("https://my-portfolio-backend-a77b.onrender.com/skills"),
       ]);
 
       setStats({

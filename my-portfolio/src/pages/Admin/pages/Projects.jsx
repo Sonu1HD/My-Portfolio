@@ -9,7 +9,7 @@ const Projects = () => {
   const token = localStorage.getItem("adminToken");
  // fetch projects from DB list
   const fetchProjects = async () => {
-    const res = await fetch("http://my-portfolio-backend-a77b.onrender.com/admin/projects", {
+    const res = await fetch("https://my-portfolio-backend-a77b.onrender.com/admin/projects", {
       headers: { Authorization: `Bearer ${token}` },
     });
     setProjects(await res.json());
@@ -22,8 +22,8 @@ const Projects = () => {
   // add and edit
   const submitProject = async () => {
     const url = editId
-      ? `http://my-portfolio-backend-a77b.onrender.com/admin/projects/${editId}`
-      : "http://my-portfolio-backend-a77b.onrender.com/admin/projects";
+      ? `https://my-portfolio-backend-a77b.onrender.com/admin/projects/${editId}`
+      : "https://my-portfolio-backend-a77b.onrender.com/admin/projects";
 
     const method = editId ? "PUT" : "POST";
 
@@ -43,7 +43,7 @@ const Projects = () => {
 
   // remove project from DB list
   const deleteProject = async (id) => {
-    await fetch(`http://my-portfolio-backend-a77b.onrender.com/admin/projects/${id}`, {
+    await fetch(`https://my-portfolio-backend-a77b.onrender.com/admin/projects/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });

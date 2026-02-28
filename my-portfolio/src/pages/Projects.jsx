@@ -6,7 +6,7 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-      fetch("http://my-portfolio-backend-a77b.onrender.com/projects")
+      fetch("https://my-portfolio-backend-a77b.onrender.com/projects")
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);

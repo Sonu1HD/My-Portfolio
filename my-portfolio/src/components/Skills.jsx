@@ -5,7 +5,7 @@ const Skills = () => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    fetch("http://my-portfolio-backend-a77b.onrender.com/skills")
+    fetch("https://my-portfolio-backend-a77b.onrender.com/skills")
     .then((res) => res.json())
     .then((data) => setSkills(data));
   }, []);

@@ -9,7 +9,7 @@ const Skills = () => {
   const token = localStorage.getItem("adminToken");
 
   const fetchSkills = async () => {
-    const res = await fetch("http://my-portfolio-backend-a77b.onrender.com/admin/skills", {
+    const res = await fetch("https://my-portfolio-backend-a77b.onrender.com/admin/skills", {
       headers: { Authorization: `Bearer ${token}` },
     });
     setSkills(await res.json());
@@ -20,7 +20,7 @@ const Skills = () => {
   }, []);
 
   const addSkill = async () => {
-    await fetch("http://my-portfolio-backend-a77b.onrender.com/admin/skills", {
+    await fetch("https://my-portfolio-backend-a77b.onrender.com/admin/skills", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ const Skills = () => {
   };
 
   const deleteSkill = async (id) => {
-    await fetch(`http://my-portfolio-backend-a77b.onrender.com/admin/skills/${id}`, {
+    await fetch(`https://my-portfolio-backend-a77b.onrender.com/admin/skills/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
