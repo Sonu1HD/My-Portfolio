@@ -229,7 +229,8 @@ app.delete("/admin/skills/:id", verifyAdmin, async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log(`server running at http://localhost:3000`);
+const PORT = process.env.PORT || 5000;
 
+app.listen(PORT, () => {
+  console.log(`server running at http://localhost${PORT}`);
 });
