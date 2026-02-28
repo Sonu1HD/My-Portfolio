@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import './App.css'
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar.jsx'
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Projects from './pages/Projects'
-import About from './pages/About'
-import Contact from './pages/Contact'
+import Home from './pages/Home.jsx'
+import Projects from './pages/Projects.jsx'
+import About from './pages/About.jsx'
+import Contact from './pages/Contact.jsx'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Footer from './components/Footer'
-import AdminLogin from "./pages/Admin/adminLogin";
-import Dashboard from './pages/Admin/pages/Dashboard'
-import ProtectedRoute from "./components/ProtectedRoute";
-import Messages from './pages/Admin/pages/Messages'
-import AdminProjects from './pages/Admin/pages/Projects'
-import AdminSkills from './pages/Admin/pages/Skills'
+import Footer from './components/Footer.jsx'
+import AdminLogin from "./pages/Admin/AdminLogin.jsx";
+import Dashboard from './pages/Admin/pages/Dashboard.jsx'
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Messages from './pages/Admin/pages/Messages.jsx'
+import AdminProjects from './pages/Admin/pages/Projects.jsx'
+import AdminSkills from './pages/Admin/pages/Skills.jsx'
 
 function App() {
   // const [count, setCount] = useState(0)
