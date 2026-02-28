@@ -8,7 +8,7 @@ const About = () => {
         <div className="relative group">
           <div className="absolute -inset-1 bg-indigo-500/40 blur-xl opacity-20 group-hover:opacity-40 transition duration-500 rounded-3xl"></div>
           <img
-            src="src/assets/4839864.jpg"
+            src="/images/4839864.jpg"
             alt="about"
             className="relative w-[260px] rounded-3xl shadow-2xl shadow-indigo-900 group-hover:scale-105 transition-transform duration-500"
           />

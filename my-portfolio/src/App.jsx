@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <div className='bg-[url("src/assets/431bedc7-2eae-4041-ac4d-ce30444b9518.jpg")] bg-center bg-cover bg-no-repeat min-h-screen flex flex-col'>
+      <div className='bg-[url("/images/431bedc7-2eae-4041-ac4d-ce30444b9518.jpg")] bg-center bg-cover bg-no-repeat min-h-screen flex flex-col'>
         <Navbar />
         {/* <Home /> */}
         <Routes>

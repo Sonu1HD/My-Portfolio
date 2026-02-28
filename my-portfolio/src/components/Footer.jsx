@@ -41,7 +41,7 @@ const Footer = () => {
                             </a>
 
                             <a href="https://github.com/Sonu1HD" target="_blank" rel="noopener noreferrer">
-                                <img src="src/assets/icons8-github-logo-50.png" alt="GitHub"
+                                <img src="/images/icons8-github-logo-50.png" alt="GitHub"
                                     className="w-8 hover:scale-110 transition-all" />
                             </a>
 

@@ -42,7 +42,7 @@ const AdminNavbar = ({ toggleSidebar, adminEmail, messageCount = 0, loading = fa
                         onClick={() => setOpenProfile(!openProfile)}
                         className="w-9 h-9 rounded-full bg-indigo-500 text-white flex items-center justify-center cursor-pointer select-none"
                     >
-                        <img className="w-8 h-8 rounded-full justify-center" src="src/assets/Gemini_Generated_Image_ox3ba4ox3ba4ox3b.png" alt="profile-pic" />
+                        <img className="w-8 h-8 rounded-full justify-center" src="/images/Gemini_Generated_Image_ox3ba4ox3ba4ox3b.png" alt="profile-pic" />
                     </div>
 
                     {/* Profile popup */}

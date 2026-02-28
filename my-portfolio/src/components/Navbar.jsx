@@ -138,7 +138,7 @@ const Navbar = () => {
                             >
                                 <img
                                     className="w-7 rounded-2xl"
-                                    src="src/assets/icons8-github-logo-50.png"
+                                    src="/images/icons8-github-logo-50.png"
                                     alt="GitHub"
                                 />
                             </a>

@@ -37,7 +37,7 @@ shadow-2xl">
           </p>
 
           <a
-            href="src/assets/Resume (1).pdf"
+            href="/images/Resume (1).pdf"
             download
             className="inline-block"
           >
@@ -52,7 +52,7 @@ shadow-2xl">
         <div className="relative">
           <div className="absolute inset-0 bg-indigo-500/30 blur-2xl rounded-3xl"></div>
           <img
-            src="src/assets/Gemini_Generated_Image_ox3ba4ox3ba4ox3b.png"
+            src="/images/Gemini_Generated_Image_ox3ba4ox3ba4ox3b.png"
             alt="Hero"
             className="relative w-75 sm:w-95 rounded-3xl 
       border border-white/10 shadow-2xl"
@@ -65,7 +65,7 @@ shadow-2xl">
         <div className="relative group">
           <div className="absolute -inset-1 bg-indigo-500/40 blur-xl opacity-20 group-hover:opacity-40 transition duration-500 rounded-3xl"></div>
           <img
-            src="src/assets/4839864.jpg"
+            src="/images/4839864.jpg"
             alt="about"
             className="relative w-[260px] rounded-3xl shadow-2xl shadow-indigo-900 group-hover:scale-105 transition-transform duration-500"
           />
