@@ -18,14 +18,14 @@ const AdminLayout = ({ children }) => {
     const fetchAll = async () => {
       try {
         const [msgRes, projRes, skillRes, profileRes] = await Promise.all([
-          fetch("http://localhost:3000/admin/messages", {
+          fetch("http://my-portfolio-backend-a77b.onrender.com/admin/messages", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          fetch("http://localhost:3000/projects", {
+          fetch("http://my-portfolio-backend-a77b.onrender.com/projects", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          fetch("http://localhost:3000/skills"),
-          fetch("http://localhost:3000/admin/profile", {
+          fetch("http://my-portfolio-backend-a77b.onrender.com/skills"),
+          fetch("http://my-portfolio-backend-a77b.onrender.com/admin/profile", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);

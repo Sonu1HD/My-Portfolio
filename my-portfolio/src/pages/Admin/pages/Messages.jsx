@@ -10,7 +10,7 @@ const Messages = () => {
       try {
         const token = localStorage.getItem("adminToken");
 
-        const res = await fetch("http://localhost:3000/admin/messages", {
+        const res = await fetch("http://my-portfolio-backend-a77b.onrender.com/admin/messages", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
