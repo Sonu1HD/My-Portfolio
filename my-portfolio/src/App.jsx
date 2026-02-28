@@ -7,7 +7,7 @@ import Projects from './pages/Projects'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Footer from './components/footer'
+import Footer from './components/Footer'
 import AdminLogin from "./pages/Admin/adminLogin";
 import Dashboard from './pages/Admin/pages/Dashboard'
 import ProtectedRoute from "./components/ProtectedRoute";
