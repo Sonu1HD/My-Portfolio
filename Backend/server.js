@@ -14,12 +14,19 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: [ 
-    "http://localhost:5173",
-    "https://my-portfolio-dxpy.vercel.app" 
-  ], // React frontend
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "http://localhost:5173",
+      "https://my-portfolio-dxpy.vercel.app",
+    ];
+
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
 }));
 
 const verifyAdmin = (req, res, next) => {
@@ -236,5 +243,5 @@ app.delete("/admin/skills/:id", verifyAdmin, async (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`server running at http://localhost${PORT}`);
+  console.log(`server running at http://localhost:${PORT}`);
 });
