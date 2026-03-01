@@ -14,7 +14,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: "http://localhost:5173", // React frontend
+  origin: [ 
+    "http://localhost:5173",
+    "https://my-portfolio-dxpy.vercel.app" 
+  ], // React frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
 
