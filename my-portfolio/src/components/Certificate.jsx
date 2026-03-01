@@ -13,7 +13,7 @@ const Certificate = () => {
     {/* BACK */}
     <div className="certificate-back absolute inset-0 rotate-y-180 backface-hidden">
       <img className="w-full h-full rounded-2xl object-cover"
-      src="images/Adobe Scan Jan 18, 2026_page-0001.jpg" alt="Certificate" />
+      src="/images/Adobe Scan Jan 18, 2026_page-0001.jpg" alt="Certificate" />
     </div>
   </div>
 </div>
