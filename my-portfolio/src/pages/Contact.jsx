@@ -41,7 +41,7 @@ const Contact = () => {
   return (
     <div className="flex justify-center min-h-screen bg-[radial-gradient(circle_at_top,#1e1b4b,#020617)] px-4 text-white p-6 items-center">
 
-      <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">
+      <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl hover:scale-110 transition-all duration-300 hover:cursor-pointer">
         <h1 className="text-3xl font-bold text-center text-indigo-100 mb-8">Contact Me</h1>
       <form className="space-y-5" onSubmit={handleSubmit}>
         <label className="block text-sm font-medium text-indigo-200 mb-1">Name</label>

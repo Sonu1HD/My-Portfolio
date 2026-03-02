@@ -1,69 +1,150 @@
-import { useState } from 'react'
+import { lazy, Suspense } from 'react';
 import './App.css'
-import Navbar from './components/Navbar.jsx'
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home.jsx'
-import Projects from './pages/Projects.jsx'
-import About from './pages/About.jsx'
-import Contact from './pages/Contact.jsx'
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import Footer from './components/Footer.jsx'
-import AdminLogin from "./pages/Admin/AdminLogin.jsx";
-import Dashboard from './pages/Admin/pages/Dashboard.jsx'
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import Messages from './pages/Admin/pages/Messages.jsx'
-import AdminProjects from './pages/Admin/pages/Projects.jsx'
-import AdminSkills from './pages/Admin/pages/Skills.jsx'
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import Loading from './components/Loading.jsx';
+import { motion } from 'framer-motion';
+// import Navbar from './components/Navbar.jsx'
+// import Footer from './components/Footer.jsx'
+// import Contact from './pages/Contact.jsx'
+// import Home from './pages/Home.jsx'
+// import Projects from './pages/Projects.jsx'
+// import About from './pages/About.jsx'
+// import AdminLogin from "./pages/Admin/AdminLogin.jsx";
+// import Dashboard from './pages/Admin/pages/Dashboard.jsx'
+// import Messages from './pages/Admin/pages/Messages.jsx'
+// import AdminProjects from './pages/Admin/pages/Projects.jsx'
+// import AdminSkills from './pages/Admin/pages/Skills.jsx'
+const Navbar = lazy(() => import('./components/Navbar.jsx'));
+const Footer = lazy(() => import('./components/Footer.jsx'));
+const Home = lazy(() => import('./pages/Home.jsx'));
+const Projects = lazy(() => import('./pages/Projects.jsx'));
+const About = lazy(() => import('./pages/About.jsx'));
+const Contact = lazy(() => import('./pages/Contact.jsx'));
+const AdminLogin = lazy(() => import('./pages/Admin/AdminLogin.jsx'));
+const Dashboard = lazy(() => import('./pages/Admin/pages/Dashboard.jsx'));
+const Messages = lazy(() => import('./pages/Admin/pages/Messages.jsx'));
+const AdminProjects = lazy(() => import('./pages/Admin/pages/Projects.jsx'));
+const AdminSkills = lazy(() => import('./pages/Admin/pages/Skills.jsx'));
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className='bg-[url("/images/431bedc7-2eae-4041-ac4d-ce30444b9518.jpg")] bg-center bg-cover bg-no-repeat min-h-screen flex flex-col'>
+      <div className="min-h-screen bg-[url('/images/431bedc7-2eae-4041-ac4d-ce30444b9518.jpg')] bg-center bg-cover bg-no-repeat">
         <Navbar />
-        {/* <Home /> */}
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path="*" element={<Home />} />
-          <Route path="/sonu-admin-login" element={<AdminLogin />} />
-          <Route
-            path="/sonu-admin-dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/messages"
-            element={
-              <ProtectedRoute>
-                <Messages />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/projects"
-            element={
-              <ProtectedRoute>
-                <AdminProjects />
-              </ProtectedRoute>
-            }
-          />
 
-          <Route
-            path="/admin/skills"
-            element={
-              <ProtectedRoute>
-                <AdminSkills />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+        {/* Wrapping Routes with Suspense and Framer Motion for smooth page transitions */}
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full"
+                >
+                  <Home />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/projects"
+              element={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full"
+                >
+                  <Projects />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full"
+                >
+                  <About />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full"
+                >
+                  <Contact />
+                </motion.div>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full"
+                >
+                  <Home />
+                </motion.div>
+              }
+            />
+            <Route path="/sonu-admin-login" element={<AdminLogin />} />
+            <Route
+              path="/sonu-admin-dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/messages"
+              element={
+                <ProtectedRoute>
+                  <Messages />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/projects"
+              element={
+                <ProtectedRoute>
+                  <AdminProjects />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/skills"
+              element={
+                <ProtectedRoute>
+                  <AdminSkills />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </Suspense>
+
         <Footer />
       </div>
     </>

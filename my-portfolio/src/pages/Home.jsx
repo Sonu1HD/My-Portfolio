@@ -2,22 +2,27 @@ import React from 'react'
 import Section from '../components/Section'
 import Skills from '../components/Skills'
 import Certificate from '../components/Certificate'
+import { motion } from 'framer-motion'; // Import Framer Motion
 
 const Home = () => {
   return (
     <div>
-      <section className="relative
-m-5
-flex flex-col-reverse sm:flex-row
-items-center justify-between gap-12
-min-h-[80vh]
-px-4 py-10 sm:px-20
-overflow-hidden
-bg-linear-to-br
-from-black via-[#0B0F19] to-indigo-900/40
-rounded-3xl
-border border-white/10
-shadow-2xl">
+      <motion.section className="relative
+        m-5
+        flex flex-col-reverse sm:flex-row
+        items-center justify-between gap-12
+        min-h-[80vh]
+        px-4 py-10 sm:px-20
+        overflow-hidden
+        bg-linear-to-br
+        from-black via-[#0B0F19] to-indigo-900/40
+        rounded-3xl
+        border border-white/10
+        shadow-2xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
 
         {/* TEXT */}
         <div className="space-y-6 text-center sm:text-left">
@@ -58,9 +63,13 @@ shadow-2xl">
       border border-white/10 shadow-2xl"
           />
         </div>
-      </section>
+      </motion.section>
       {/* //About Section */}
-      <section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex flex-col sm:flex-row-reverse items-center justify-center gap-14 px-10 py-20">
+      <motion.section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex flex-col sm:flex-row-reverse items-center justify-center gap-14 px-10 py-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
+      >
         {/* IMAGE CARD */}
         <div className="relative group">
           <div className="absolute -inset-1 bg-indigo-500/40 blur-xl opacity-20 group-hover:opacity-40 transition duration-500 rounded-3xl"></div>
@@ -84,9 +93,13 @@ shadow-2xl">
             Always learning, improving, and excited to grow in the tech world 🚀✨
           </p>
         </div>
-      </section>
+      </motion.section>
       {/* //MY Services Section */}
-      <section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex items-center justify-center px-6 py-24">
+      <motion.section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex items-center justify-center px-6 py-24"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.4 }}
+      >
         <div className="max-w-6xl w-full text-center space-y-6">
           <p className="text-indigo-400 text-lg uppercase tracking-wider">
             What I Can Offer
@@ -132,12 +145,23 @@ shadow-2xl">
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
       {/* //Skills Section */}
-      <div className='min-h-screen flex justify-center items-center'>
+      <motion.div className="min-h-screen flex justify-center items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.6 }}
+      >
         <Certificate />
-      </div>
-      <Skills />
+      </motion.div>
+      <motion.div
+        className="skills"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.8 }}
+      >
+        <Skills />
+      </motion.div>
     </div>
   )
 }

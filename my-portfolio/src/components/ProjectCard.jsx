@@ -3,7 +3,7 @@ import React from 'react'
 const ProjectCard = ({ title, img, live, github }) => {
   return (
     <div className="project-card bg-white/10 p-5 rounded-lg hover:scale-105 transition">
-      <img src={img} alt={title} className="rounded mb-4" />
+      <img src={img} alt={title} className="rounded mb-4 hover:scale-110 transition overflow-hidden rotate-2 hover:rotate-0 shadow-2 shadow-indigo-800" />
 
       <h3 className="text-white text-xl font-bold mb-2">{title}</h3>
       <div className="flex space-x-4">
