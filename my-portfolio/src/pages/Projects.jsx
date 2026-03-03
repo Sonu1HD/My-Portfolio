@@ -3,6 +3,7 @@ import { motion } from "framer-motion"; // Import Framer Motion for animation
 import ProjectCard from "../components/ProjectCard";
 import Loading from "../components/Loading";
 
+
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,12 +18,33 @@ export default function Projects() {
       });
   }, []);
 
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
   return (
     <motion.section
       className="max-w-7xl mx-auto px-6 py-20"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
     >
       {/* Section Header */}
       <div className="text-center mb-12">
@@ -48,9 +70,10 @@ export default function Projects() {
           projects.map((p, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 * index }}
+              variants={item}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
             >
               <ProjectCard {...p} />
             </motion.div>

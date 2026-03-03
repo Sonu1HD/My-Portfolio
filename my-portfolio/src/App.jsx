@@ -43,10 +43,10 @@ function App() {
               path="/"
               element={
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
+                  exit={{ opacity: 0 }}
                   className="w-full"
                 >
                   <Home />
@@ -57,10 +57,11 @@ function App() {
               path="/projects"
               element={
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.9 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
                   className="w-full"
                 >
                   <Projects />
@@ -71,10 +72,11 @@ function App() {
               path="/about"
               element={
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
                   className="w-full"
                 >
                   <About />
@@ -85,10 +87,11 @@ function App() {
               path="/contact"
               element={
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.7 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
                   className="w-full"
                 >
                   <Contact />
@@ -99,10 +102,11 @@ function App() {
               path="*"
               element={
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
                   className="w-full"
                 >
                   <Home />

@@ -1,30 +1,53 @@
 import React from 'react'
+import { motion } from "framer-motion";
+import { fadeUp } from '../animations/variants';
 
 const ProjectCard = ({ title, img, live, github }) => {
   return (
-    <div className="project-card bg-white/10 p-5 rounded-lg hover:scale-105 transition">
-      <img src={img} alt={title} className="rounded mb-4 hover:scale-110 transition overflow-hidden rotate-2 hover:rotate-0 shadow-2 shadow-indigo-800" />
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="group bg-gradient-to-br from-gray-800/70 to-gray-900/60 
+             border border-white/10 
+             p-5 rounded-xl 
+             transition-all duration-300 
+             hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/20"
+    >
+      <div className="overflow-hidden rounded mb-4">
+        <img
+          src={img}
+          loading="lazy"
+          alt={title}
+          className="transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
 
-      <h3 className="text-white text-xl font-bold mb-2">{title}</h3>
-      <div className="flex space-x-4">
+      <h3 className="text-white text-xl font-bold mb-3">{title}</h3>
+
+      <div className="flex space-x-3">
         <a
           href={live}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm"
+          className="bg-indigo-600 hover:bg-indigo-500 
+                 text-white px-4 py-2 rounded-md text-sm transition"
         >
           Live Demo
         </a>
+
         <a
           href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gray-700 hover:bg-gray-900 text-white px-4 py-2 rounded text-sm"
+          className="bg-white/10 hover:bg-white/20 
+                 text-white px-4 py-2 rounded-md text-sm transition"
         >
           GitHub
         </a>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

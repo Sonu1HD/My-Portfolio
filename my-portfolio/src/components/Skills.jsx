@@ -1,14 +1,35 @@
 import { useEffect, useState } from "react";
 import Section from "./Section"
+import { motion } from "framer-motion";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
     fetch("https://my-portfolio-backend-a77b.onrender.com/skills")
-    .then((res) => res.json())
-    .then((data) => setSkills(data));
+      .then((res) => res.json())
+      .then((data) => setSkills(data));
   }, []);
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
   return (
     <Section
       id="skills"
@@ -17,11 +38,17 @@ const Skills = () => {
       compact
     >
       {/* GRID */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
+      <motion.div
+        className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {skills.map((skill) => (
-          <div
+          <motion.div
             key={skill.name}
-            
+            variants={item}
             className="
               reveal
               group flex flex-col items-center justify-center
@@ -37,14 +64,15 @@ const Skills = () => {
             <img
               src={skill.img}
               alt={skill.name}
+              loading="lazy"
               className="w-12 h-12 mb-3 group-hover:scale-110 transition"
             />
             <span className="text-sm font-semibold tracking-wide text-indigo-100">
               {skill.name}
             </span>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* PROGRESS / DECOR */}
       <div className="flex justify-center mt-12">

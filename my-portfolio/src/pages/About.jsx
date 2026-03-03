@@ -1,15 +1,24 @@
 import React from 'react'
+import { motion } from 'framer-motion'; // Import Framer Motion
+import { fadeUp } from '../animations/variants';
+
 
 const About = () => {
   return (
     <div>
-      <section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex flex-col sm:flex-row-reverse items-center justify-center gap-14 px-10 py-20">
+      <motion.section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex flex-col sm:flex-row-reverse items-center justify-center gap-14 px-10 py-20"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {/* IMAGE CARD */}
         <div className="relative group">
           <div className="absolute -inset-1 bg-indigo-500/40 blur-xl opacity-20 group-hover:opacity-40 transition duration-500 rounded-3xl"></div>
           <img
             src="/images/4839864.jpg"
             alt="about"
+            loading="lazy"
             className="relative w-[260px] rounded-3xl shadow-2xl shadow-indigo-900 group-hover:scale-105 transition-transform duration-500"
           />
         </div>
@@ -27,8 +36,13 @@ const About = () => {
             Always learning, improving, and excited to grow in the tech world 🚀✨
           </p>
         </div>
-      </section>
-      <section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex items-center justify-center px-6 py-24">
+      </motion.section>
+      <motion.section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex items-center justify-center px-6 py-24"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-6xl w-full text-center space-y-6">
           <p className="text-indigo-400 text-lg uppercase tracking-wider">
             What I Can Offer
@@ -74,7 +88,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   )
 }

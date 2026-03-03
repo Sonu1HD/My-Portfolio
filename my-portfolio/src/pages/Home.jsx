@@ -3,6 +3,7 @@ import Section from '../components/Section'
 import Skills from '../components/Skills'
 import Certificate from '../components/Certificate'
 import { motion } from 'framer-motion'; // Import Framer Motion
+import { fadeUp } from "../animations/variants";
 
 const Home = () => {
   return (
@@ -19,9 +20,10 @@ const Home = () => {
         rounded-3xl
         border border-white/10
         shadow-2xl"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
 
         {/* TEXT */}
@@ -59,6 +61,7 @@ const Home = () => {
           <img
             src="/images/Gemini_Generated_Image_ox3ba4ox3ba4ox3b.png"
             alt="Hero"
+            loading="lazy"
             className="relative w-75 sm:w-95 rounded-3xl 
       border border-white/10 shadow-2xl"
           />
@@ -66,16 +69,18 @@ const Home = () => {
       </motion.section>
       {/* //About Section */}
       <motion.section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex flex-col sm:flex-row-reverse items-center justify-center gap-14 px-10 py-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
         {/* IMAGE CARD */}
         <div className="relative group">
-          <div className="absolute -inset-1 bg-indigo-500/40 blur-xl opacity-20 group-hover:opacity-40 transition duration-500 rounded-3xl"></div>
+          <div className="absolute -inset-1 opacity-20 group-hover:opacity-40 transition duration-500 rounded-3xl"></div>
           <img
             src="/images/4839864.jpg"
             alt="about"
+            loading="lazy"
             className="relative w-[260px] rounded-3xl shadow-2xl shadow-indigo-900 group-hover:scale-105 transition-transform duration-500"
           />
         </div>
@@ -96,9 +101,10 @@ const Home = () => {
       </motion.section>
       {/* //MY Services Section */}
       <motion.section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex items-center justify-center px-6 py-24"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
         <div className="max-w-6xl w-full text-center space-y-6">
           <p className="text-indigo-400 text-lg uppercase tracking-wider">
@@ -114,7 +120,7 @@ const Home = () => {
           {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pt-10 hover:cursor-pointer">
             {/* Card 1 */}
-            <div className="border border-indigo-500/30 rounded-xl p-8 bg-black/40 backdrop-blur-md hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 transition duration-300">
+            <div className="border border-indigo-500/30 rounded-xl p-8 bg-black/20 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 transition duration-300">
               <h2 className="text-xl font-semibold mb-3 text-indigo-400">
                 Web Design & UI
               </h2>
@@ -124,7 +130,7 @@ const Home = () => {
               </p>
             </div>
             {/* Card 2 */}
-            <div className="border border-indigo-500/30 rounded-xl p-8 bg-black/40 backdrop-blur-md hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 transition duration-300">
+            <div className="border border-indigo-500/30 rounded-xl p-8 bg-black/20 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 transition duration-300">
               <h2 className="text-xl font-semibold mb-3 text-indigo-400">
                 API Development
               </h2>
@@ -134,7 +140,7 @@ const Home = () => {
               </p>
             </div>
             {/* Card 3 */}
-            <div className="border border-indigo-500/30 rounded-xl p-8 bg-black/40 backdrop-blur-md hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 transition duration-300">
+            <div className="border border-indigo-500/30 rounded-xl p-8 bg-black/20  hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 transition duration-300">
               <h2 className="text-xl font-semibold mb-3 text-indigo-400">
                 Database Management
               </h2>
@@ -148,17 +154,18 @@ const Home = () => {
       </motion.section>
       {/* //Skills Section */}
       <motion.div className="min-h-screen flex justify-center items-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.6 }}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
         <Certificate />
       </motion.div>
       <motion.div
-        className="skills"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.8 }}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
         <Skills />
       </motion.div>
