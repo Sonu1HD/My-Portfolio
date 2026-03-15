@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'; // Import Framer Motion
+import { fadeUp } from "../../animations/variants";
 
 const AdminLogin = () => {
     const navigate = useNavigate();
@@ -26,9 +28,16 @@ const AdminLogin = () => {
             setError("Server error");
         }
     };
+    
 
     return (
-        <div className='min-h-screen flex items-center justify-center bg-black px-4'>
+        <motion.div
+            className='min-h-screen flex items-center justify-center bg-black px-4'
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+        >
             <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl">
                 <h1 className="text-3xl font-bold text-white text-center mb-6">
                     Admin Login
@@ -65,7 +74,7 @@ const AdminLogin = () => {
                     </button>
                 </form>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

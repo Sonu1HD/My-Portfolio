@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { motion } from 'framer-motion'; // Import Framer Motion
+import { fadeUp } from "../../../animations/variants";
 
 const AdminNavbar = ({ toggleSidebar, adminEmail, messageCount = 0, loading = false }) => {
 
@@ -12,7 +14,13 @@ const AdminNavbar = ({ toggleSidebar, adminEmail, messageCount = 0, loading = fa
     };
 
     return (
-        <header className="relative flex items-center justify-between bg-gray-900 px-6 py-4 shadow">
+        <motion.header 
+        className="relative flex items-center justify-between bg-gray-900 px-6 py-4 shadow"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        >
             <button
                 onClick={toggleSidebar}
                 className="text-xl font-bold md:hidden cursor-pointer"
@@ -67,7 +75,7 @@ const AdminNavbar = ({ toggleSidebar, adminEmail, messageCount = 0, loading = fa
                     )}
                 </div>
             </div>
-        </header>
+        </motion.header>
     );
 };
 

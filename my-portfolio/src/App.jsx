@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       <div className="min-h-screen bg-[url('/images/431bedc7-2eae-4041-ac4d-ce30444b9518.jpg')] bg-center bg-cover bg-no-repeat">
-        <Navbar />
+          <Navbar />
 
         {/* Wrapping Routes with Suspense and Framer Motion for smooth page transitions */}
         <Suspense fallback={<Loading />}>

@@ -1,12 +1,25 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
     const navigate = useNavigate();
     const [clickCount, setClickCount] = useState(0);
     const timerRef = useRef(null);
+    const [scrolled, setScrolled] = useState(false);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const handleSecretClick = () => {
         console.log("Logo clicked");
@@ -36,8 +49,18 @@ const Navbar = () => {
         });
     }
     return (
-        <div className="sticky top-0 z-40">
-            <nav className='flex justify-between px-4 sm:px-10 p-6 font-semibold border-b-2 bg-gray-800/50 text-white items-center'>
+        <div className={`sticky z-40 transition-all duration-300 ${scrolled ? "top-4" : "top-0"
+            }`}>
+            <nav className={`
+    transition-all duration-300 ease-in-out
+    flex justify-between items-center
+    font-semibold text-white
+    ${scrolled
+                    ? "mx-auto w-[90%] sm:w-[70%] px-6 py-3 rounded-full bg-gray-900/80 backdrop-blur-md shadow-lg border border-white/10"
+                    : "w-full px-4 sm:px-10 py-6 border-b-2 bg-gray-800/50"
+                }
+  `}
+            >
                 <div onClick={handleSecretClick} className="logo cursor-pointer font-mono select-none">My Portfolio</div>
                 <ul className='hidden sm:flex gap-5'>
                     <li className='hover:cursor-pointer border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
@@ -78,7 +101,7 @@ const Navbar = () => {
     sm:hidden
     absolute top-full left-0 w-full
     bg-gray-900/95 backdrop-blur-md
-    overflow-hidden
+    overflow-hidden rounded-2xl
     transition-all duration-300 ease-out
     ${open ? "max-h-60 opacity-100" : "max-h-0 opacity-0"}
   `}

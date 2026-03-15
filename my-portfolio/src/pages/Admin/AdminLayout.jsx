@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import AdminSidebar from "./components/AdminSidebar";
 import AdminNavbar from "./components/AdminNavbar";
+import { motion } from 'framer-motion'; // Import Framer Motion
+import { fadeUp } from "../../animations/variants";
 
 const AdminLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -47,7 +49,13 @@ const AdminLayout = ({ children }) => {
   }, []);
 
   return (
-    <div className="min-h-screen flex bg-black">
+    <motion.div
+      className="min-h-screen flex bg-black"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <AdminSidebar open={sidebarOpen} />
 
       <div className="flex-1 flex flex-col">
@@ -63,7 +71,7 @@ const AdminLayout = ({ children }) => {
           {children}
         </main>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion'; // Import Framer Motion
+import { fadeUp } from "../../animations/variants";
 
-const AdminDashboard = ({}) => {
+const AdminDashboard = ({ }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -9,7 +11,13 @@ const AdminDashboard = ({}) => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-10">
+    <motion.div
+      className="min-h-screen bg-black text-white px-6 py-10"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       {/* Top bar */}
       <div className="flex justify-between items-center mb-10">
         <h1 className="text-3xl font-bold text-indigo-400">
@@ -41,7 +49,7 @@ const AdminDashboard = ({}) => {
           <p className="text-gray-400">View contact form messages</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
