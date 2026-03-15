@@ -90,7 +90,7 @@ const Navbar = () => {
                      active:scale-95
                      "
                 >
-                    <span className="text-sm">Menu</span>
+                    <span className="text-sm">M</span>
                     <i
                         className={`fa-solid fa-bars transition-transform duration-300 ${open ? "rotate-90" : ""
                             }`}

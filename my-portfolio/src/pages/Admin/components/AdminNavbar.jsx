@@ -15,7 +15,7 @@ const AdminNavbar = ({ toggleSidebar, adminEmail, messageCount = 0, loading = fa
 
     return (
         <motion.header 
-        className="relative flex items-center justify-between bg-gray-900 px-6 py-4 shadow"
+        className="relative flex items-center justify-between bg-gray-900 px-4 sm:px-6 py-4 shadow"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -23,7 +23,7 @@ const AdminNavbar = ({ toggleSidebar, adminEmail, messageCount = 0, loading = fa
         >
             <button
                 onClick={toggleSidebar}
-                className="text-xl font-bold md:hidden cursor-pointer"
+                className="text-xl font-bold md:hidden text-white cursor-pointer"
             >
                 ☰
             </button>
