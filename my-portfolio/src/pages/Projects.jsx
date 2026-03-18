@@ -78,10 +78,14 @@ export default function Projects() {
       </div>
       {/* Project Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 hover:cursor-pointer">
-        {loading ? (
-          <div className="col-span-3">
+        {loading && projects.length === 0 ? (
+          <motion.div className="col-span-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
             <Loading />
-          </div>
+          </motion.div>
         ) : (
           projects.map((p, index) => (
             <motion.div

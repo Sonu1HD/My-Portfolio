@@ -1,9 +1,10 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Loading from './components/Loading.jsx';
+import IntroLoader from './components/IntroLoader.jsx';
 import { motion } from 'framer-motion';
 // import Navbar from './components/Navbar.jsx'
 // import Footer from './components/Footer.jsx'
@@ -30,132 +31,98 @@ const AdminSkills = lazy(() => import('./pages/Admin/pages/Skills.jsx'));
 
 function App() {
   // const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
-    fetch("https://your-backend.onrender.com/")
+    fetch("https://my-portfolio-backend-a77b.onrender.com")
   }, [])
 
   return (
     <>
-      <div className="min-h-screen bg-[url('/images/431bedc7-2eae-4041-ac4d-ce30444b9518.jpg')] bg-center bg-cover bg-no-repeat">
+      {/* 🔥 Intro Loader (first thing) */}
+      {loading && <IntroLoader onFinish={() => setLoading(false)} />}
+
+      {/* 🔥 Main App (only after loader finishes) */}
+      {!loading && (
+        <div className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900">
+
           <Navbar />
 
-        {/* Wrapping Routes with Suspense and Framer Motion for smooth page transitions */}
-        <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  exit={{ opacity: 0 }}
-                  className="w-full"
-                >
-                  <Home />
-                </motion.div>
-              }
-            />
-            <Route
-              path="/projects"
-              element={
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.9 }}
-                  exit={{ opacity: 0 }}
-                  className="w-full"
-                >
-                  <Projects />
-                </motion.div>
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6 }}
-                  exit={{ opacity: 0 }}
-                  className="w-full"
-                >
-                  <About />
-                </motion.div>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.7 }}
-                  exit={{ opacity: 0 }}
-                  className="w-full"
-                >
-                  <Contact />
-                </motion.div>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6 }}
-                  exit={{ opacity: 0 }}
-                  className="w-full"
-                >
-                  <Home />
-                </motion.div>
-              }
-            />
-            <Route path="/sonu-admin-login" element={<AdminLogin />} />
-            <Route
-              path="/sonu-admin-dashboard"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/messages"
-              element={
-                <ProtectedRoute>
-                  <Messages />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/projects"
-              element={
-                <ProtectedRoute>
-                  <AdminProjects />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/skills"
-              element={
-                <ProtectedRoute>
-                  <AdminSkills />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-        </Suspense>
+          <Suspense fallback={<Loading />}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Home />
+                  </motion.div>
+                }
+              />
 
-        <Footer />
-      </div>
+              <Route
+                path="/projects"
+                element={
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Projects />
+                  </motion.div>
+                }
+              />
+
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/sonu-admin-login" element={<AdminLogin />} />
+
+              <Route
+                path="/sonu-admin-dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/admin/messages"
+                element={
+                  <ProtectedRoute>
+                    <Messages />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/admin/projects"
+                element={
+                  <ProtectedRoute>
+                    <AdminProjects />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/admin/skills"
+                element={
+                  <ProtectedRoute>
+                    <AdminSkills />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </Suspense>
+
+          <Footer />
+        </div>
+      )}
     </>
-  )
+  );
 }
 
 export default App
