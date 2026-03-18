@@ -10,12 +10,28 @@ export default function Projects() {
 
   // Fetch projects data on component mount
   useEffect(() => {
-    fetch("https://my-portfolio-backend-a77b.onrender.com/projects")
-      .then((res) => res.json())
-      .then((data) => {
+    const cached = localStorage.getItem("projects");
+
+    if (cached) {
+      setProjects(JSON.parse(cached));
+      setLoading(false); // 🔥 important → stop loader immediately
+    }
+
+    const fetchData = async () => {
+      try {
+        const res = await fetch("https://my-portfolio-backend-a77b.onrender.com/projects");
+        const data = await res.json();
+
         setProjects(data);
-        setLoading(false); // Set loading to false once data is fetched
-      });
+        localStorage.setItem("projects", JSON.stringify(data));
+      } catch (err) {
+        console.log("Fetch error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const container = {

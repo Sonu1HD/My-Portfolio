@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
@@ -30,6 +30,9 @@ const AdminSkills = lazy(() => import('./pages/Admin/pages/Skills.jsx'));
 
 function App() {
   // const [count, setCount] = useState(0)
+  useEffect(() => {
+    fetch("https://your-backend.onrender.com/")
+  }, [])
 
   return (
     <>
