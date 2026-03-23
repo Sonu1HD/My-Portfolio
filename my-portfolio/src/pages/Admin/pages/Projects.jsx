@@ -12,7 +12,7 @@ const Projects = () => {
   });
   const [editId, setEditId] = useState(null);
 
-  const techOptions = ["HTML", "CSS", "JS", "React", "Node", "MongoDB", "Bootstrap"];
+  const techOptions = ["HTML", "CSS", "JS", "Tailwind", "React", "Node", "MongoDB", "Bootstrap"];
   const token = localStorage.getItem("adminToken");
 
   // Upload image to Cloudinary
