@@ -28,11 +28,12 @@ const Dashboard = lazy(() => import('./pages/Admin/pages/Dashboard.jsx'));
 const Messages = lazy(() => import('./pages/Admin/pages/Messages.jsx'));
 const AdminProjects = lazy(() => import('./pages/Admin/pages/Projects.jsx'));
 const AdminSkills = lazy(() => import('./pages/Admin/pages/Skills.jsx'));
+const AdminProfile = lazy(() => import('./pages/Admin/pages/Profile.jsx'));
 
 function App() {
   // const [count, setCount] = useState(0)
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     fetch("https://my-portfolio-backend-a77b.onrender.com")
   }, [])
@@ -115,6 +116,15 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+
+              <Route
+              path="/admin/profile"
+              element={
+                <ProtectedRoute>
+                  <AdminProfile />
+                </ProtectedRoute>
+              }
+            />
             </Routes>
           </Suspense>
 

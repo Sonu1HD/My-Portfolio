@@ -123,82 +123,151 @@ const Projects = () => {
   };
 
   return (
-    <AdminLayout>
-      <h1 className="text-xl mb-4">Manage Projects</h1>
+  <AdminLayout>
+    <div className="bg-linear-to-br from-gray-900 via-gray-800 to-black 
+                min-h-screen p-6 text-white">
 
-      {/* FORM */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-        {["title", "live", "github"].map((field) => (
-          <input
-            key={field}
-            placeholder={field}
-            value={form[field]}
-            onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-            className="p-2 text-white bg-gray-700 rounded-2xl"
-          />
-        ))}
+      <div className="max-w-5xl mx-auto bg-white/5 backdrop-blur-xl 
+                  border border-white/10 rounded-2xl p-6 shadow-xl">
+        
+          <h1 className="text-2xl font-bold mb-6 tracking-wide 
+               bg-linear-to-r from-indigo-400 to-purple-400 
+               text-transparent bg-clip-text">
+            🚀 Manage Projects
+          </h1>
 
-        <div className="sm:col-span-2">
-          <p className="text-sm mb-2 text-gray-300">Select Tech:</p>
-          <div className="flex flex-wrap gap-2">
-            {techOptions.map((tech) => (
-              <button
-                key={tech}
-                type="button"
-                onClick={() =>
-                  setForm((prev) => {
-                    const exists = prev.tech.includes(tech);
-                    const updatedTech = exists ? prev.tech.filter((t) => t !== tech) : [...prev.tech, tech];
-                    console.log("Updated Tech:", updatedTech);
-                    return { ...prev, tech: updatedTech };
-                  })
-                }
-                className={`px-3 py-1 rounded-md text-sm border transition ${form.tech.includes(tech)
-                    ? "bg-indigo-600 text-white border-indigo-500"
-                    : "bg-gray-700 text-gray-300 border-gray-600"
-                  }`}
-              >
-                {tech}
-              </button>
+          {/* FORM */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+            {["title", "live", "github"].map((field) => (
+              <input
+                key={field}
+                placeholder={field}
+                value={form[field]}
+                onChange={(e) => setForm({ ...form, [field]: e.target.value })}
+                className="p-3 bg-white/10 border border-white/10 
+           rounded-xl focus:outline-none 
+           focus:ring-2 focus:ring-indigo-500 
+           text-white placeholder-gray-400"
+              />
             ))}
+
+            <div className="sm:col-span-2">
+              <p className="text-sm mb-2 text-gray-300">Select Tech:</p>
+              <div className="flex flex-wrap gap-2">
+                {techOptions.map((tech) => (
+                  <button
+                    key={tech}
+                    type="button"
+                    onClick={() =>
+                      setForm((prev) => {
+                        const exists = prev.tech.includes(tech);
+                        const updatedTech = exists ? prev.tech.filter((t) => t !== tech) : [...prev.tech, tech];
+                        console.log("Updated Tech:", updatedTech);
+                        return { ...prev, tech: updatedTech };
+                      })
+                    }
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium 
+                    transition-all duration-200 border
+                    ${form.tech.includes(tech)
+                        ? "bg-indigo-500 text-white shadow-lg shadow-indigo-500/30 border-indigo-400"
+                        : "bg-white/10 text-gray-300 border-white/10 hover:bg-white/20"
+                      }`}
+                  >
+                    {tech}
+                  </button>
+                ))}
+                <div className="mt-3 text-sm text-gray-400">
+                  Selected:
+                  <span className="text-indigo-400 ml-2">
+                    {form.tech.join(", ") || "None"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Image upload */}
+            <input
+              type="file"
+              onChange={(e) => setForm({ ...form, img: e.target.files[0] })}
+              className="p-3 bg-white/10 border border-white/10 
+           rounded-xl focus:outline-none 
+           focus:ring-2 focus:ring-indigo-500 
+           text-white placeholder-gray-400"
+            />
+
+            {/* Preview */}
+            {form.img && (
+              <div className="mt-2 flex items-center gap-3">
+                <img
+                  src={form.img instanceof File ? URL.createObjectURL(form.img) : form.img}
+                  className="h-16 w-16 rounded-lg object-cover border border-white/10"
+                />
+                <span className="text-sm text-gray-400">Preview</span>
+              </div>
+            )}
           </div>
-        </div>
 
-        {/* Image upload */}
-        <input
-          type="file"
-          onChange={(e) => setForm({ ...form, img: e.target.files[0] })}
-          className="p-2 text-white bg-gray-700 rounded-2xl"
-        />
+          <button
+            onClick={submitProject}
+            className="w-full py-3 rounded-xl font-medium 
+             bg-linear-to-r from-indigo-500 to-purple-500 
+             hover:from-indigo-400 hover:to-purple-400 
+             transition shadow-lg shadow-indigo-500/30 mb-5"
+          >
+            {editId ? "Update Project" : "Add Project"}
+          </button>
 
-        {/* Preview */}
-        {form.img && (
-          <img
-            src={form.img instanceof File ? URL.createObjectURL(form.img) : form.img}
-            className="h-20 rounded mt-2 object-cover"
-          />
-        )}
+          {/* LIST */}
+          <ul className="space-y-2">
+            {projects.map((p) => (
+              <li
+                key={p._id}
+                className="bg-white/5 border border-white/10 
+             rounded-xl p-4 flex items-center justify-between 
+             hover:bg-white/10 transition"
+              >
+                <div className="flex items-center gap-4">
+                  <img
+                    src={p.img}
+                    className="h-14 w-14 object-cover rounded-lg border border-white/10"
+                  />
+
+                  <div>
+                    <p className="font-semibold">{p.title}</p>
+
+                    <div className="flex gap-1 mt-1 flex-wrap">
+                      {p.tech?.map((t, i) => (
+                        <span
+                          key={i}
+                          className="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => editProject(p)}
+                    className="px-3 py-1 text-sm bg-yellow-500/20 text-yellow-300 rounded hover:bg-yellow-500/30"
+                  >
+                    Edit
+                  </button>
+
+                  <button
+                    onClick={() => deleteProject(p._id)}
+                    className="px-3 py-1 text-sm bg-red-500/20 text-red-300 rounded hover:bg-red-500/30"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
       </div>
-
-      <button onClick={submitProject} className="px-4 py-2 bg-indigo-600 mb-6">
-        {editId ? "Update Project" : "Add Project"}
-      </button>
-
-      {/* LIST */}
-      <ul className="space-y-2">
-        {projects.map((p) => (
-          <li key={p._id} className="bg-white/10 p-3 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img src={p.img} className="h-12 w-12 object-cover rounded" />
-              <span>{p.title}</span>
-            </div>
-            <div className="space-x-2">
-              <button onClick={() => editProject(p)}>✏️</button>
-              <button onClick={() => deleteProject(p._id)}>❌</button>
-            </div>
-          </li>
-        ))}
-      </ul>
+    </div>
     </AdminLayout>
   );
 };
