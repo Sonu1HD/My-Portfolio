@@ -2,14 +2,16 @@ import React from 'react'
 import { motion } from "framer-motion";
 import { fadeUp } from '../animations/variants';
 
-const ProjectCard = ({ title, img, live, github }) => {
+const ProjectCard = ({ title, img, live, github, tech = [] }) => {
+  // console.log("TECH", tech);
+  
   return (
     <motion.div
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="group bg-gradient-to-br from-gray-800/70 to-gray-900/60 
+      className="group bg-linear-to-br from-gray-800/70 to-gray-900/60 
              border border-white/10 
              p-5 rounded-xl 
              transition-all duration-300 
@@ -25,6 +27,20 @@ const ProjectCard = ({ title, img, live, github }) => {
       </div>
 
       <h3 className="text-white text-xl font-bold mb-3">{title}</h3>
+
+      <div className="flex flex-wrap gap-2 mb-4">
+        {tech.map((item, index) => (
+          <span
+            key={index}
+            className="text-xs px-3 py-1 rounded-md 
+                       bg-white/10 text-white 
+                       border border-white/10 
+                       hover:bg-indigo-500/20 transition"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
 
       <div className="flex space-x-3">
         <a

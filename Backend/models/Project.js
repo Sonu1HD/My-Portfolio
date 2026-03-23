@@ -16,6 +16,10 @@ const projectSchema = new mongoose.Schema(
     github: {
       type: String,
     },
+    tech: {
+      type: [String],
+      default: []
+    },
   },
   { timestamps: true }
 );

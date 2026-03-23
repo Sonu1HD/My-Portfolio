@@ -10,18 +10,11 @@ export default function Projects() {
 
   // Fetch projects data on component mount
   useEffect(() => {
-    const cached = localStorage.getItem("projects");
-
-    if (cached) {
-      setProjects(JSON.parse(cached));
-      setLoading(false); // 🔥 important → stop loader immediately
-    }
-
     const fetchData = async () => {
       try {
         const res = await fetch("https://my-portfolio-backend-a77b.onrender.com/projects");
         const data = await res.json();
-
+        // console.log(projects);
         setProjects(data);
         localStorage.setItem("projects", JSON.stringify(data));
       } catch (err) {
@@ -33,6 +26,10 @@ export default function Projects() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+  console.log("UPDATED PROJECTS:", projects);
+}, [projects]);
 
   const container = {
     hidden: {},

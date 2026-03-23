@@ -170,9 +170,20 @@ app.get("/admin/projects", verifyAdmin, async (req, res) => {
 // ADMIN – add project
 app.post("/admin/projects", verifyAdmin, async (req, res) => {
   try {
-    const project = await Project.create(req.body);
+    const { title, img, live, github, tech } = req.body;
+
+    const project = await Project.create({
+      title,
+      img,
+      live,
+      github,
+      tech: Array.isArray(tech) ? tech.map(String) : [], // ✅ force as array of strings
+    });
+
+    console.log("Saved Project", project);
     res.status(201).json(project);
-  } catch {
+  } catch (err) {
+    console.error("Failed to add project:", err);
     res.status(500).json({ message: "Failed to add project" });
   }
 });
@@ -180,13 +191,23 @@ app.post("/admin/projects", verifyAdmin, async (req, res) => {
 // ADMIN – update project
 app.put("/admin/projects/:id", verifyAdmin, async (req, res) => {
   try {
+    const { title, img, live, github, tech } = req.body;
+
     const updated = await Project.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      {
+        title,
+        img,
+        live,
+        github,
+        tech: Array.isArray(tech) ? tech.map(String) : [],
+      },
       { new: true }
     );
+
     res.json(updated);
-  } catch {
+  } catch (err) {
+    console.error("Failed to update project:", err);
     res.status(500).json({ message: "Failed to update project" });
   }
 });
@@ -239,6 +260,12 @@ app.delete("/admin/skills/:id", verifyAdmin, async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Failed to delete skill" });
   }
+});
+
+app.get("/debug", async (req, res) => {
+  const projects = await Project.find();
+  console.log(projects);
+  res.json(projects);
 });
 
 const PORT = process.env.PORT || 5000;

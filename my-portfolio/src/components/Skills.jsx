@@ -1,14 +1,42 @@
 import { useEffect, useState } from "react";
 import Section from "./Section"
 import { motion } from "framer-motion";
+import Loading from "./Loading";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   fetch("")
+  //     .then((res) => res.json())
+  //     .then((data) => setSkills(data));
+  // }, []);
 
   useEffect(() => {
-    fetch("https://my-portfolio-backend-a77b.onrender.com/skills")
-      .then((res) => res.json())
-      .then((data) => setSkills(data));
+    const cached = localStorage.getItem("skills");
+
+    if (cached) {
+      setSkills(JSON.parse(cached));
+      // setLoading(false); // 🔥 important → stop loader immediately
+    }
+
+    const fetchData = async () => {
+      try {
+        const res = await fetch("https://my-portfolio-backend-a77b.onrender.com/skills");
+        const data = await res.json();
+
+        setSkills(data);
+        localStorage.setItem("skills", JSON.stringify(data));
+      } catch (err) {
+        console.log("Fetch error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+    
   }, []);
   const container = {
     hidden: {},
