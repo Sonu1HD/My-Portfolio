@@ -81,7 +81,7 @@ const Contact = () => {
           className="relative group"
         >
           {/* Decorative Glow Background */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+          <div className="absolute -inset-1 bg-linear-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
           
           <div className="relative bg-white/5 backdrop-blur-2xl border border-white/10 p-8 rounded-2xl shadow-2xl">
             <form onSubmit={handleSubmit} className="space-y-5">

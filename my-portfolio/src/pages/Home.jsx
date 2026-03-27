@@ -81,7 +81,7 @@ const Home = () => {
             src="/images/4839864.jpg"
             alt="about"
             loading="lazy"
-            className="relative w-[260px] rounded-3xl shadow-2xl shadow-indigo-900 group-hover:scale-105 transition-transform duration-500"
+            className="relative w-65 rounded-3xl shadow-2xl shadow-indigo-900 group-hover:scale-105 transition-transform duration-500"
           />
         </div>
         {/* TEXT BOX */}
