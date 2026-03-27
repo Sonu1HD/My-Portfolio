@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion for animation
 import ProjectCard from "../components/ProjectCard";
 import Loading from "../components/Loading";
-import LoadingBar from "../components/LoadingBar";
 
 
 export default function Projects() {
@@ -74,9 +73,6 @@ export default function Projects() {
           A collection of websites and UI projects I’ve built while learning
           and improving my front-end skills.
         </p>
-      </div>
-      <div className="flex justify-center -mt-14 mb-3 rounded-2xl ">
-        <LoadingBar />
       </div>
       {/* Project Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 hover:cursor-pointer">
