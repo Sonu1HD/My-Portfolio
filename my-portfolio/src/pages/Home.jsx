@@ -44,7 +44,7 @@ const Home = () => {
           </p>
 
           <a
-            href="/images/Resume (1).pdf"
+            href="/images/Sonu_Halder_Resume.pdf"
             download
             className="inline-block"
           >

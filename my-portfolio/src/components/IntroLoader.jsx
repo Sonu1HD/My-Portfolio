@@ -50,7 +50,7 @@ const IntroLoader = ({ onFinish }) => {
       </h1>
 
       {/* Typing Text */}
-      <p className="mt-4 text-sm text-blue-400 tracking-widest">
+      <p className="mt-4 animate-pulse text-sm text-blue-400 tracking-widest">
         {text}
         <span className="animate-pulse">|</span>
       </p>
