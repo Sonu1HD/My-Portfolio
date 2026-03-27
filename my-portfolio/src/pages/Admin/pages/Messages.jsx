@@ -33,12 +33,12 @@ const Messages = () => {
   return (
 
     <AdminLayout>
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-6">
+      <div className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-black text-white p-6">
         <div className="max-w-5xl mx-auto bg-white/5 backdrop-blur-xl 
                   border border-white/10 rounded-2xl p-6 shadow-xl">
           <div>
             <div className="mb-8">
-              <h1 className="text-3xl font-bold bg-gradient-to-r 
+              <h1 className="text-3xl font-bold bg-linear-to-r 
                  from-indigo-400 to-purple-400 
                  text-transparent bg-clip-text">
                 📩 Messages Inbox

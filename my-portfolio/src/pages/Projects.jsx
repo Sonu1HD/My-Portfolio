@@ -5,8 +5,12 @@ import Loading from "../components/Loading";
 
 
 export default function Projects() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState(() => {
+    const saved = localStorage.getItem("projects");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  const [loading, setLoading] = useState(projects.length === 0);
 
   // Fetch projects data on component mount
   useEffect(() => {
@@ -28,8 +32,8 @@ export default function Projects() {
   }, []);
 
   useEffect(() => {
-  console.log("UPDATED PROJECTS:", projects);
-}, [projects]);
+    console.log("UPDATED PROJECTS:", projects);
+  }, [projects]);
 
   const container = {
     hidden: {},

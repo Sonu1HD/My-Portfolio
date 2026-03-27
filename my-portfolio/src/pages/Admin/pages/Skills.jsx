@@ -43,7 +43,7 @@ const Skills = () => {
 
   return (
   <AdminLayout>
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-6">
+    <div className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-black text-white p-6">
       <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-xl 
                   border border-white/10 rounded-2xl p-6 shadow-xl">
         
@@ -77,7 +77,7 @@ const Skills = () => {
             <button
               onClick={addSkill}
               className="px-6 py-3 rounded-xl font-medium 
-               bg-gradient-to-r from-indigo-500 to-purple-500 
+               bg-linear-to-r from-indigo-500 to-purple-500 
                hover:from-indigo-400 hover:to-purple-400 
                transition shadow-lg shadow-indigo-500/30"
             >
