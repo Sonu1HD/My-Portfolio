@@ -61,7 +61,7 @@ const Navbar = () => {
                 }
   `}
             >
-                <div onClick={handleSecretClick} className="logo cursor-pointer font-mono select-none">My Portfolio</div>
+                <div onClick={handleSecretClick} className="logo cursor-pointer font-mono text-2xl flex gap-2 items-center select-none"><span><img src="/images/SonuHalder_Portfolio-Logo.png" className="w-12" alt="LOGO" /></span>Sonu Halder</div>
                 <ul className='hidden sm:flex gap-5'>
                     <li className='hover:cursor-pointer border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
                         <Link to="/">Home</Link>
