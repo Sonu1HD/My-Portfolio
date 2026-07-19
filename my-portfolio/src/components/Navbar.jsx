@@ -82,7 +82,7 @@ const Navbar = () => {
                      sm:hidden
                      flex items-center gap-2
                      cursor-pointer
-                     px-4 py-2
+                     px-5 py-3
                      rounded-xl
                      bg-indigo-500
                      text-white font-semibold
@@ -90,7 +90,7 @@ const Navbar = () => {
                      active:scale-95
                      "
                 >
-                    <span className="text-sm">M</span>
+                    
                     <i
                         className={`fa-solid fa-bars transition-transform duration-300 ${open ? "rotate-90" : ""
                             }`}
@@ -103,7 +103,7 @@ const Navbar = () => {
     bg-gray-900/95 backdrop-blur-md
     overflow-hidden rounded-2xl
     transition-all duration-300 ease-out
-    ${open ? "max-h-60 opacity-100" : "max-h-0 opacity-0"}
+    ${open ? "max-h-100 opacity-100" : "max-h-0 opacity-0"}
   `}
                 >
                     <ul className="flex flex-col items-center gap-5 py-6">
@@ -123,10 +123,53 @@ const Navbar = () => {
                             </Link>
                         ))}
                     </ul>
+                    <div className="w-full border-t-2 border-white/30 pt-3">
+                    <ul className="space-y-5 justify-center flex gap-4 flex-wrap sm:hidden">
+                        <li className='hover:shadow-indigo-500/50 animate-bounce transition duration-500 transform hover:-translate-y-2'>
+                            <a
+                                href="https://www.linkedin.com/in/sonu-halder-33479b282"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    className="w-7 rounded-2xl"
+                                    src="https://yt3.googleusercontent.com/i6KNxiy3gME-BulL4WnuGkTGqHuSYF8jl1WRn0rXftcJdSYK7dHKcJ3gLAaPc-KfhmLSYPwf824=s900-c-k-c0x00ffffff-no-rj"
+                                    alt="LinkedIn"
+                                />
+                            </a>
+                        </li>
+                        <li className='hover:shadow-indigo-500/50 animate-bounce transition duration-500 transform hover:-translate-y-2'>
+                            <a
+                                href="https://wa.me/919871253730"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    className="w-7 rounded-2xl"
+                                    src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN"
+                                    alt="WhatsApp"
+                                />
+                            </a>
+                        </li>
+                        <li className='hover:shadow-indigo-500/50 animate-bounce transition duration-500 transform hover:-translate-y-2'>
+                            <a
+                                href="https://github.com/Sonu1HD"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    className="w-7 rounded-2xl"
+                                    src="/images/icons8-github-logo-50.png"
+                                    alt="GitHub"
+                                />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 </div>
 
                 <div className="h-full border-l-2 border-white/30 pl-3">
-                    <ul className="space-y-2 flex flex-wrap sm:space-y-0 sm:flex-row sm:space-x-3">
+                    <ul className="space-y-2 hidden flex-wrap sm:flex sm:space-y-0 sm:flex-row sm:space-x-3">
                         <li className='hover:shadow-indigo-500/50 transition duration-500 transform hover:-translate-y-2'>
                             <a
                                 href="https://www.linkedin.com/in/sonu-halder-33479b282"
