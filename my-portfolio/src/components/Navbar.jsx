@@ -63,16 +63,16 @@ const Navbar = () => {
             >
                 <div onClick={handleSecretClick} className="logo cursor-pointer font-mono text-2xl flex gap-2 items-center select-none"><span><img src="/images/SonuHalder_Portfolio-Logo.png" className="w-12" alt="LOGO" /></span>Sonu Halder</div>
                 <ul className='hidden sm:flex gap-5'>
-                    <li className='hover:cursor-pointer border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
+                    <li className='hover:cursor-pointer hover:text-shadow-[0_0_12px_#6366f1] border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
                         <Link to="/">Home</Link>
                     </li>
-                    <li className='hover:cursor-pointer border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
+                    <li className='hover:cursor-pointer hover:text-shadow-[0_0_12px_#6366f1] border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
                         <Link to="/projects">Projects</Link>
                     </li>
-                    <li className='hover:cursor-pointer border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
+                    <li className='hover:cursor-pointer hover:text-shadow-[0_0_12px_#6366f1] border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
                         <Link to="/about">About</Link>
                     </li>
-                    <li className='hover:cursor-pointer border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
+                    <li className='hover:cursor-pointer hover:text-shadow-[0_0_12px_#6366f1] border-b-2 border-transparent hover:border-indigo-500 transition-all duration-300'>
                         <Link to="/contact">Contact</Link>
                     </li>
                 </ul>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react"; // Install lucide-react
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ username: "", email: "", message: "" });
@@ -37,10 +38,15 @@ const Contact = () => {
 
   return (
     <section className="min-h-screen bg-[radial-gradient(circle_at_top,#1e1b4b,#020617)] py-20 px-6 flex items-center justify-center">
+      <Helmet>
+        <title>Contact | Your Full Name</title>
+        <meta name="description" content="Get in touch with me for freelance projects, job opportunities, or collaborations." />
+      </Helmet>
+      
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
+
         {/* Left Side: Contact Info */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -82,7 +88,7 @@ const Contact = () => {
         >
           {/* Decorative Glow Background */}
           <div className="absolute -inset-1 bg-linear-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-          
+
           <div className="relative bg-white/5 backdrop-blur-2xl border border-white/10 p-8 rounded-2xl shadow-2xl">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 gap-5">

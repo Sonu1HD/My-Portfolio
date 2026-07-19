@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion for animation
 import ProjectCard from "../components/ProjectCard";
 import Loading from "../components/Loading";
+import { Helmet } from 'react-helmet-async';
 
 
 export default function Projects() {
@@ -63,6 +64,11 @@ export default function Projects() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
+      <Helmet>
+        <title>Projects & Work | Your Full Name</title>
+        <meta name="description" content="Explore my portfolio of web applications built using React, Node.js, Express, and MongoDB." />
+      </Helmet>
+      
       {/* Section Header */}
       <div className="text-center mb-12">
         <p className="text-indigo-400 uppercase tracking-wider">Portfolio</p>

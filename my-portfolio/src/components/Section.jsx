@@ -1,11 +1,11 @@
 import Skills from "./Skills"
-const Section = ({ id, title, children, bg }) => {
+const Section = ({ id, title, children }) => {
   return (
     <section
       id={id}
       className={`
         relative
-        ${bg ? bg : "bg-transparent"}
+        min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white
         py-10 sm:py-15
       `}
     >

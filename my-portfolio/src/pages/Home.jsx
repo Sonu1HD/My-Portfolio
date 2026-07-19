@@ -4,10 +4,15 @@ import Skills from '../components/Skills'
 import Certificate from '../components/Certificate'
 import { motion } from 'framer-motion'; // Import Framer Motion
 import { fadeUp } from "../animations/variants";
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Sonu Halder | MERN Stack Developer Portfolio</title>
+        <meta name="description" content="Portfolio of Sonu Halder, a MERN Stack Developer specializing in React, Node.js, Express, and MongoDB." />
+      </Helmet>
       <motion.section className="relative
         m-5
         flex flex-col-reverse sm:flex-row

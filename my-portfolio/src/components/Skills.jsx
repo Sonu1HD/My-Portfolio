@@ -3,15 +3,34 @@ import Section from "./Section"
 import { motion } from "framer-motion";
 import Loading from "./Loading";
 
+
 const Skills = () => {
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [matrixData, setMatrixData] = useState([
+    [0, 1, 0],
+    [1, 0, 1],
+    [0, 0, 1]
+  ]);
 
   // useEffect(() => {
   //   fetch("")
   //     .then((res) => res.json())
   //     .then((data) => setSkills(data));
   // }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMatrixData(() => [
+        [Math.round(Math.random()), Math.round(Math.random()), Math.round(Math.random())],
+        [Math.round(Math.random()), Math.round(Math.random()), Math.round(Math.random())],
+        [Math.round(Math.random()), Math.round(Math.random()), Math.round(Math.random())]
+      ])
+    }, 150)
+
+    return () => clearInterval(interval);
+
+  }, []);
 
   useEffect(() => {
     const cached = localStorage.getItem("skills");
@@ -36,7 +55,7 @@ const Skills = () => {
     };
 
     fetchData();
-    
+
   }, []);
   const container = {
     hidden: {},
@@ -62,7 +81,6 @@ const Skills = () => {
     <Section
       id="skills"
       title="My Skills"
-      bg="bg-[radial-gradient(circle_at_top,_#1e1b4b,_#020617)]"
       compact
     >
       {/* GRID */}
@@ -104,7 +122,30 @@ const Skills = () => {
 
       {/* PROGRESS / DECOR */}
       <div className="flex justify-center mt-12">
-        <div className="w-24 h-0.5 bg-linear-to-r from-transparent via-indigo-400 to-transparent"></div>
+        <div className="flex gap-4 font-mono select-none">
+
+          {/* Column 1 */}
+          <div className="flex flex-col text-3xl font-bold text-emerald-400 [text-shadow:0_0_8px_#34d399]">
+            <span className="animate-bounce [animation-delay:100ms] opacity-40">{matrixData[0][0]}</span>
+            <span className="animate-bounce [animation-delay:300ms] opacity-70">{matrixData[0][1]}</span>
+            <span className="animate-bounce [animation-delay:500ms] text-white [text-shadow:0_0_12px_#fff]">{matrixData[0][2]}</span>
+          </div>
+
+          {/* Column 2 */}
+          <div className="flex flex-col text-3xl font-bold text-emerald-400 [text-shadow:0_0_8px_#34d399]">
+            <span className="animate-bounce [animation-delay:200ms] opacity-30">{matrixData[1][0]}</span>
+            <span className="animate-bounce [animation-delay:400ms] opacity-80">{matrixData[1][1]}</span>
+            <span className="animate-bounce [animation-delay:600ms] text-white [text-shadow:0_0_12px_#fff]">{matrixData[1][2]}</span>
+          </div>
+
+          {/* Column 3 */}
+          <div className="flex flex-col text-3xl font-bold text-emerald-400 [text-shadow:0_0_8px_#34d399]">
+            <span className="animate-bounce [animation-delay:400ms] opacity-20">{matrixData[2][0]}</span>
+            <span className="animate-bounce [animation-delay:100ms] opacity-60">{matrixData[2][1]}</span>
+            <span className="animate-bounce [animation-delay:300ms] text-white [text-shadow:0_0_12px_#fff]">{matrixData[2][2]}</span>
+          </div>
+
+        </div>
       </div>
     </Section>
   )

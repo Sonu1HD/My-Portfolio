@@ -1,11 +1,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'; // Import Framer Motion
 import { fadeUp } from '../animations/variants';
+import { Helmet } from 'react-helmet-async';
 
 
 const About = () => {
   return (
     <div>
+      <Helmet>
+        <title>About Me | Sonu Halder</title>
+        <meta name="description" content="Learn more about my background as a MERN stack developer, my technical skills, and my journey." />
+      </Helmet>
+
       <motion.section className="min-h-screen bg-linear-to-r from-indigo-900 via-black to-indigo-900 text-white flex flex-col sm:flex-row-reverse items-center justify-center gap-14 px-10 py-20"
         variants={fadeUp}
         initial="hidden"
